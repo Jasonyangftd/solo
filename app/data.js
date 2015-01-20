@@ -80,11 +80,66 @@ var getTotal = function(){
       totalHours[optionValuesD[i]].workingHours += 3.75;
     }
   };
+  var innerFuncSA = function(){
+    var optionValuesSA =[];
+    $('.shiftSA option:selected').each(function() {
+      optionValuesSA.push($(this).val());
+    });
+
+    for (var i = 0; i < optionValuesSA.length; i++){
+      totalHours[optionValuesSA[i]].workingHours += 9;
+    }
+  };  
+  var innerFuncSB = function(){
+    var optionValuesSB =[];
+    $('.shiftSB option:selected').each(function() {
+      optionValuesSB.push($(this).val());
+    });
+
+    for (var i = 0; i < optionValuesSB.length; i++){
+      totalHours[optionValuesSB[i]].workingHours += 7;
+    }
+  };  
+  var innerFuncSC = function(){
+    var optionValuesSC =[];
+    $('.shiftSC option:selected').each(function() {
+      optionValuesSC.push($(this).val());
+    });
+
+    for (var i = 0; i < optionValuesSC.length; i++){
+      totalHours[optionValuesSC[i]].workingHours += 7;
+    }
+  };  
+  var innerFuncSD = function(){
+    var optionValuesSD =[];
+    $('.shiftSD option:selected').each(function() {
+      optionValuesSD.push($(this).val());
+    });
+
+    for (var i = 0; i < optionValuesSD.length; i++){
+      totalHours[optionValuesSD[i]].workingHours += 7;
+    }
+  };  
+  var innerFuncSE = function(){
+    var optionValuesSE =[];
+    $('.shiftSE option:selected').each(function() {
+      optionValuesSE.push($(this).val());
+    });
+
+    for (var i = 0; i < optionValuesSE.length; i++){
+      totalHours[optionValuesSE[i]].workingHours += 6;
+    }
+  };
   
   innerFuncA();
   innerFuncB();
   innerFuncC();
   innerFuncD();
+  innerFuncSA();
+  innerFuncSB();
+  innerFuncSC();
+  innerFuncSD();
+  innerFuncSE();
 
   // console.dir(totalHours.eileen)
 }
