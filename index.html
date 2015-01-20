@@ -8,6 +8,7 @@
 
   <script src="app/employees.js"></script>
   <script src="app/data.js"></script>
+  <script src="app/utilities.js"></script>
   <script src="app/helpers.js"></script>
   <script src='app/app.js'></script>
   <link rel="stylesheet" href="style.css" />
@@ -16,116 +17,125 @@
   <h1>Ajisen Schedule</h1>
   <table>
     <tr>
+      <th ng-repeat="person in total">{{person.name}}</th>
+    </tr>
+    <tr>
+      <th ng-repeat="person in total">{{person.workingHours}}</th>
+    </tr>
+  </table>
+  <table>
+    <tr>
       <th ng-repeat="head in heads">{{head}}</th>
     </tr>
     <tr>
       <td>10:00-4:00(-1)</td>
-      <td><select class='shiftA'><option ng-repeat="who in mondayLunch">{{who.name}}</option></select></td>
-      <td><select class='shiftA'><option ng-repeat="who in tuesdayLunch">{{who.name}}</option></select></td>
-      <td><select class='shiftA'><option ng-repeat="who in wendnesdayLunch">{{who.name}}</option></select></td>
-      <td><select class='shiftA'><option ng-repeat="who in thursdayLunch">{{who.name}}</option></select></td>
-      <td><select class='shiftA'><option ng-repeat="who in fridayLunch">{{who.name}}</option></select></td>
-      <td><select class='shiftA'><option ng-repeat="who in saturdayLunch">{{who.name}}</option></select></td>
+      <td><select class='shiftA monday'><option ng-repeat="who in mondayLunch">{{who.name}}</option></select></td>
+      <td><select class='shiftA tuesday'><option ng-repeat="who in tuesdayLunch">{{who.name}}</option></select></td>
+      <td><select class='shiftA wendnesday'><option ng-repeat="who in wendnesdayLunch">{{who.name}}</option></select></td>
+      <td><select class='shiftA thursday'><option ng-repeat="who in thursdayLunch">{{who.name}}</option></select></td>
+      <td><select class='shiftA friday'><option ng-repeat="who in fridayLunch">{{who.name}}</option></select></td>
+      <td><select class='shiftA saturday'><option ng-repeat="who in saturdayLunch">{{who.name}}</option></select></td>
       <td>10:00-8:00(-1)</td>
-      <td><select class='shiftSA'><option ng-repeat="who in sunday">{{who.name}}</option></select></td>
+      <td><select class='shiftSA sunday'><option ng-repeat="who in sunday">{{who.name}}</option></select></td>
     </tr>
     <tr>
       <td>11:00-4:00(-30)</td>
-      <td><select class='shiftC'><option ng-repeat="who in mondayLunch">{{who.name}}</option></select></td>
-      <td><select class='shiftC'><option ng-repeat="who in tuesdayLunch">{{who.name}}</option></select></td>
-      <td><select class='shiftC'><option ng-repeat="who in wendnesdayLunch">{{who.name}}</option></select></td>
-      <td><select class='shiftC'><option ng-repeat="who in thursdayLunch">{{who.name}}</option></select></td>
-      <td><select class='shiftC'><option ng-repeat="who in fridayLunch">{{who.name}}</option></select></td>
-      <td><select class='shiftC'><option ng-repeat="who in saturdayLunch">{{who.name}}</option></select></td>
+      <td><select class='shiftC monday'><option ng-repeat="who in mondayLunch">{{who.name}}</option></select></td>
+      <td><select class='shiftC tuesday'><option ng-repeat="who in tuesdayLunch">{{who.name}}</option></select></td>
+      <td><select class='shiftC wendnesday'><option ng-repeat="who in wendnesdayLunch">{{who.name}}</option></select></td>
+      <td><select class='shiftC thursday'><option ng-repeat="who in thursdayLunch">{{who.name}}</option></select></td>
+      <td><select class='shiftC friday'><option ng-repeat="who in fridayLunch">{{who.name}}</option></select></td>
+      <td><select class='shiftC saturday'><option ng-repeat="who in saturdayLunch">{{who.name}}</option></select></td>
       <td>11:00-7:00(-1)</td>
-      <td><select class='shiftSB'><option ng-repeat="who in sunday">{{who.name}}</option></select></td>
+      <td><select class='shiftSB sunday'><option ng-repeat="who in sunday">{{who.name}}</option></select></td>
     </tr>
     
     <tr>
       <td>11:15-4:00(-30)</td>
-      <td><select class='shiftD'><option ng-repeat="who in mondayLunch">{{who.name}}</option></select></td>
-      <td><select class='shiftD'><option ng-repeat="who in tuesdayLunch">{{who.name}}</option></select></td>
-      <td><select class='shiftD'><option ng-repeat="who in wendnesdayLunch">{{who.name}}</option></select></td>
-      <td><select class='shiftD'><option ng-repeat="who in thursdayLunch">{{who.name}}</option></select></td>
-      <td><select class='shiftD'><option ng-repeat="who in fridayLunch">{{who.name}}</option></select></td>
-      <td><select class='shiftD'><option ng-repeat="who in saturdayLunch">{{who.name}}</option></select></td>
+      <td><select class='shiftD monday'><option ng-repeat="who in mondayLunch">{{who.name}}</option></select></td>
+      <td><select class='shiftD tuesday'><option ng-repeat="who in tuesdayLunch">{{who.name}}</option></select></td>
+      <td><select class='shiftD wendnesday'><option ng-repeat="who in wendnesdayLunch">{{who.name}}</option></select></td>
+      <td><select class='shiftD thursday'><option ng-repeat="who in thursdayLunch">{{who.name}}</option></select></td>
+      <td><select class='shiftD friday'><option ng-repeat="who in fridayLunch">{{who.name}}</option></select></td>
+      <td><select class='shiftD saturday'><option ng-repeat="who in saturdayLunch">{{who.name}}</option></select></td>
       <td>11:30-7:30(-1)</td>
-      <td><select class='shiftSC'><option ng-repeat="who in sunday">{{who.name}}</option></select></td>
+      <td><select class='shiftSC sunday'><option ng-repeat="who in sunday">{{who.name}}</option></select></td>
     </tr>
     
     <tr>
       <td>11:45-3:45</td>
-      <td><select class='shiftB'><option ng-repeat="who in mondayLunch">{{who.name}}</option></select></td>
-      <td><select class='shiftB'><option ng-repeat="who in tuesdayLunch">{{who.name}}</option></select></td>
-      <td><select class='shiftB'><option ng-repeat="who in wendnesdayLunch">{{who.name}}</option></select></td>
-      <td><select class='shiftB'><option ng-repeat="who in thursdayLunch">{{who.name}}</option></select></td>
-      <td><select class='shiftB'><option ng-repeat="who in fridayLunch">{{who.name}}</option></select></td>
-      <td><select class='shiftB'><option ng-repeat="who in saturdayLunch">{{who.name}}</option></select></td>
+      <td><select class='shiftB monday'><option ng-repeat="who in mondayLunch">{{who.name}}</option></select></td>
+      <td><select class='shiftB tuesday'><option ng-repeat="who in tuesdayLunch">{{who.name}}</option></select></td>
+      <td><select class='shiftB wendnesday'><option ng-repeat="who in wendnesdayLunch">{{who.name}}</option></select></td>
+      <td><select class='shiftB thursday'><option ng-repeat="who in thursdayLunch">{{who.name}}</option></select></td>
+      <td><select class='shiftB friday'><option ng-repeat="who in fridayLunch">{{who.name}}</option></select></td>
+      <td><select class='shiftB saturday'><option ng-repeat="who in saturdayLunch">{{who.name}}</option></select></td>
       <td>12:00-8:00(-1)</td>
-      <td><select class='shiftSD'><option ng-repeat="who in sunday">{{who.name}}</option></select></td>
+      <td><select class='shiftSD sunday'><option ng-repeat="who in sunday">{{who.name}}</option></select></td>
     </tr>
     
     <tr>
       <td>12:00-4:00</td>
-      <td><select class='shiftB'><option ng-repeat="who in mondayLunch">{{who.name}}</option></select></td>
-      <td><select class='shiftB'><option ng-repeat="who in tuesdayLunch">{{who.name}}</option></select></td>
-      <td><select class='shiftB'><option ng-repeat="who in wendnesdayLunch">{{who.name}}</option></select></td>
-      <td><select class='shiftB'><option ng-repeat="who in thursdayLunch">{{who.name}}</option></select></td>
-      <td><select class='shiftB'><option ng-repeat="who in fridayLunch">{{who.name}}</option></select></td>
-      <td><select class='shiftB'><option ng-repeat="who in saturdayLunch">{{who.name}}</option></select></td>
+      <td><select class='shiftB monday'><option ng-repeat="who in mondayLunch">{{who.name}}</option></select></td>
+      <td><select class='shiftB tuesday'><option ng-repeat="who in tuesdayLunch">{{who.name}}</option></select></td>
+      <td><select class='shiftB wendnesday'><option ng-repeat="who in wendnesdayLunch">{{who.name}}</option></select></td>
+      <td><select class='shiftB thursday'><option ng-repeat="who in thursdayLunch">{{who.name}}</option></select></td>
+      <td><select class='shiftB friday'><option ng-repeat="who in fridayLunch">{{who.name}}</option></select></td>
+      <td><select class='shiftB saturday'><option ng-repeat="who in saturdayLunch">{{who.name}}</option></select></td>
       <td>12:30-7:30(-1)</td>
-      <td><select class='shiftSE'><option ng-repeat="who in sunday">{{who.name}}</option></select></td>
+      <td><select class='shiftSE sunday'><option ng-repeat="who in sunday">{{who.name}}</option></select></td>
     </tr>
     
     <tr>
       <td>4:00-9:30(-30)</td>
-      <td><select class='shiftA'><option ng-repeat="who in mondayDinner">{{who.name}}</option></select></td>
-      <td><select class='shiftA'><option ng-repeat="who in tuesdayDinner">{{who.name}}</option></select></td>
-      <td><select class='shiftA'><option ng-repeat="who in wendnesdayDinner">{{who.name}}</option></select></td>
-      <td><select class='shiftA'><option ng-repeat="who in thursdayDinner">{{who.name}}</option></select></td>
-      <td><select class='shiftA'><option ng-repeat="who in fridayDinner">{{who.name}}</option></select></td>
-      <td><select class='shiftA'><option ng-repeat="who in saturdayDinner">{{who.name}}</option></select></td>
+      <td><select class='shiftA monday'><option ng-repeat="who in mondayDinner">{{who.name}}</option></select></td>
+      <td><select class='shiftA tuesday'><option ng-repeat="who in tuesdayDinner">{{who.name}}</option></select></td>
+      <td><select class='shiftA wendnesday'><option ng-repeat="who in wendnesdayDinner">{{who.name}}</option></select></td>
+      <td><select class='shiftA thursday'><option ng-repeat="who in thursdayDinner">{{who.name}}</option></select></td>
+      <td><select class='shiftA friday'><option ng-repeat="who in fridayDinner">{{who.name}}</option></select></td>
+      <td><select class='shiftA saturday'><option ng-repeat="who in saturdayDinner">{{who.name}}</option></select></td>
       <td colspan="2"><button ng-click="getTotalHours()">Calculate Total Hours</button></td>
     </tr>
     
     <tr>
       <td>4:00-9:00</td>
-      <td><select class='shiftA'><option ng-repeat="who in mondayDinner">{{who.name}}</option></select></td>
-      <td><select class='shiftA'><option ng-repeat="who in tuesdayDinner">{{who.name}}</option></select></td>
-      <td><select class='shiftA'><option ng-repeat="who in wendnesdayDinner">{{who.name}}</option></select></td>
-      <td><select class='shiftA'><option ng-repeat="who in thursdayDinner">{{who.name}}</option></select></td>
-      <td><select class='shiftA'><option ng-repeat="who in fridayDinner">{{who.name}}</option></select></td>
-      <td><select class='shiftA'><option ng-repeat="who in saturdayDinner">{{who.name}}</option></select></td>
+      <td><select class='shiftA monday'><option ng-repeat="who in mondayDinner">{{who.name}}</option></select></td>
+      <td><select class='shiftA tuesday'><option ng-repeat="who in tuesdayDinner">{{who.name}}</option></select></td>
+      <td><select class='shiftA wendnesday'><option ng-repeat="who in wendnesdayDinner">{{who.name}}</option></select></td>
+      <td><select class='shiftA thursday'><option ng-repeat="who in thursdayDinner">{{who.name}}</option></select></td>
+      <td><select class='shiftA friday'><option ng-repeat="who in fridayDinner">{{who.name}}</option></select></td>
+      <td><select class='shiftA saturday'><option ng-repeat="who in saturdayDinner">{{who.name}}</option></select></td>
+      <td colspan="2"><button ng-click="checkConflicts()">Check Conflicts</button></td>
     </tr>
     
     <tr>
       <td>4:00-8:00</td>
-      <td><select class='shiftB'><option ng-repeat="who in mondayDinner">{{who.name}}</option></select></td>
-      <td><select class='shiftB'><option ng-repeat="who in tuesdayDinner">{{who.name}}</option></select></td>
-      <td><select class='shiftB'><option ng-repeat="who in wendnesdayDinner">{{who.name}}</option></select></td>
-      <td><select class='shiftB'><option ng-repeat="who in thursdayDinner">{{who.name}}</option></select></td>
-      <td><select class='shiftB'><option ng-repeat="who in fridayDinner">{{who.name}}</option></select></td>
-      <td><select class='shiftB'><option ng-repeat="who in saturdayDinner">{{who.name}}</option></select></td>
+      <td><select class='shiftB monday'><option ng-repeat="who in mondayDinner">{{who.name}}</option></select></td>
+      <td><select class='shiftB tuesday'><option ng-repeat="who in tuesdayDinner">{{who.name}}</option></select></td>
+      <td><select class='shiftB wendnesday'><option ng-repeat="who in wendnesdayDinner">{{who.name}}</option></select></td>
+      <td><select class='shiftB thursday'><option ng-repeat="who in thursdayDinner">{{who.name}}</option></select></td>
+      <td><select class='shiftB friday'><option ng-repeat="who in fridayDinner">{{who.name}}</option></select></td>
+      <td><select class='shiftB saturday'><option ng-repeat="who in saturdayDinner">{{who.name}}</option></select></td>
     </tr>
     
     <tr>
       <td>4:45-8:45</td>
-      <td><select class='shiftB'><option ng-repeat="who in mondayDinner">{{who.name}}</option></select></td>
-      <td><select class='shiftB'><option ng-repeat="who in tuesdayDinner">{{who.name}}</option></select></td>
-      <td><select class='shiftB'><option ng-repeat="who in wendnesdayDinner">{{who.name}}</option></select></td>
-      <td><select class='shiftB'><option ng-repeat="who in thursdayDinner">{{who.name}}</option></select></td>
-      <td><select class='shiftB'><option ng-repeat="who in fridayDinner">{{who.name}}</option></select></td>
-      <td><select class='shiftB'><option ng-repeat="who in saturdayDinner">{{who.name}}</option></select></td>
+      <td><select class='shiftB monday'><option ng-repeat="who in mondayDinner">{{who.name}}</option></select></td>
+      <td><select class='shiftB tuesday'><option ng-repeat="who in tuesdayDinner">{{who.name}}</option></select></td>
+      <td><select class='shiftB wendnesday'><option ng-repeat="who in wendnesdayDinner">{{who.name}}</option></select></td>
+      <td><select class='shiftB thursday'><option ng-repeat="who in thursdayDinner">{{who.name}}</option></select></td>
+      <td><select class='shiftB friday'><option ng-repeat="who in fridayDinner">{{who.name}}</option></select></td>
+      <td><select class='shiftB saturday'><option ng-repeat="who in saturdayDinner">{{who.name}}</option></select></td>
     </tr>
 
     <tr>
       <td>4:30-9:30</td>
-      <td><select class='shiftA'><option ng-repeat="who in mondayDinner">{{who.name}}</option></select></td>
-      <td><select class='shiftA'><option ng-repeat="who in tuesdayDinner">{{who.name}}</option></select></td>
-      <td><select class='shiftA'><option ng-repeat="who in wendnesdayDinner">{{who.name}}</option></select></td>
-      <td><select class='shiftA'><option ng-repeat="who in thursdayDinner">{{who.name}}</option></select></td>
-      <td><select class='shiftA'><option ng-repeat="who in fridayDinner">{{who.name}}</option></select></td>
-      <td><select class='shiftA'><option ng-repeat="who in saturdayDinner">{{who.name}}</option></select></td>
+      <td><select class='shiftA monday'><option ng-repeat="who in mondayDinner">{{who.name}}</option></select></td>
+      <td><select class='shiftA tuesday'><option ng-repeat="who in tuesdayDinner">{{who.name}}</option></select></td>
+      <td><select class='shiftA wendnesday'><option ng-repeat="who in wendnesdayDinner">{{who.name}}</option></select></td>
+      <td><select class='shiftA thursday'><option ng-repeat="who in thursdayDinner">{{who.name}}</option></select></td>
+      <td><select class='shiftA friday'><option ng-repeat="who in fridayDinner">{{who.name}}</option></select></td>
+      <td><select class='shiftA saturday'><option ng-repeat="who in saturdayDinner">{{who.name}}</option></select></td>
     </tr>
 
 
@@ -149,14 +159,9 @@ var din nerWorkShifts = ['','','','','']; -->
     </tr> -->
   </table>
 
-  <table>
-    <tr>
-      <th ng-repeat="person in total">{{person.name}}</th>
-    </tr>
-    <tr>
-      <th ng-repeat="person in total">{{person.workingHours}}</th>
-    </tr>
-  </table>
+
+
+  <p class='conflicts' ng-repeat="conflict in showConflicts"><strong>{{conflict}}</strong></p>
   
 </body>
 </html>

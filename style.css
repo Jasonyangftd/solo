@@ -27,3 +27,7 @@ table td {
 ul {
     list-style-type: none;
 }
+
+.conflicts{
+    color: red;
+}

@@ -24,4 +24,7 @@ app.controller('MainController', function ($scope) {
   // $scope.weekDays = workDays;
   $scope.getTotalHours = getTotal;
   $scope.total = totalHours;
+
+  $scope.checkConflicts = checkCon;
+  $scope.showConflicts = conflicts;
 })
